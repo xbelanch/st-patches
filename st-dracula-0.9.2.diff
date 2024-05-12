@@ -1,0 +1,79 @@
+From 8ce5b5f63262b10b3450e06a15e3cbb259e8ec4c Mon Sep 17 00:00:00 2001
+From: Xavier Belanche <xbelanch@protonmail.com>
+Date: Sun, 12 May 2024 17:22:56 +0200
+Subject: [PATCH] Make dracula theme compatible again!
+
+---
+ config.def.h | 43 ++++++++++++++++++++++---------------------
+ 1 file changed, 22 insertions(+), 21 deletions(-)
+
+diff --git a/config.def.h b/config.def.h
+index 04a04f9..2cfa11b 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -96,30 +96,31 @@ unsigned int tabspaces = 8;
+ /* Terminal colors (16 first used in escape sequence) */
+ static const char *colorname[] = {
+ 	/* 8 normal colors */
+-	"black",
+-	"red3",
+-	"green3",
+-	"yellow3",
+-	"blue2",
+-	"magenta3",
+-	"cyan3",
+-	"gray90",
++	[0] = "#000000",
++	[1] = "#ff5555",
++	[2] = "#50fa7b",
++	[3] = "#f1fa8c",
++	[4] = "#bd93f9",
++	[5] = "#ff79c6",
++	[6] = "#8be9fd",
++	[7] = "#ececec",
+ 
+ 	/* 8 bright colors */
+-	"gray50",
+-	"red",
+-	"green",
+-	"yellow",
+-	"#5c5cff",
+-	"magenta",
+-	"cyan",
+-	"white",
++	[8]  = "#44475a",
++	[9]  = "#ff5555",
++	[10] = "#50fa7b",
++	[11] = "#f1fa8c",
++	[12] = "#bd93f9",
++	[13] = "#ff79c6",
++	[14] = "#8be9fd",
++	[15] = "#efefef",
+ 
+ 	[255] = 0,
++    /* special colors */
++	[256] = "#282a36",
++	[257] = "#f8f8f8",
+ 
+ 	/* more colors can be added after 255 to use with DefaultXX */
+-	"#cccccc",
+-	"#555555",
+ 	"gray90", /* default foreground colour */
+ 	"black", /* default background colour */
+ };
+@@ -129,9 +130,9 @@ static const char *colorname[] = {
+  * Default colors (colorname index)
+  * foreground, background, cursor, reverse cursor
+  */
+-unsigned int defaultfg = 258;
+-unsigned int defaultbg = 259;
+-unsigned int defaultcs = 256;
++unsigned int defaultfg = 257;
++unsigned int defaultbg = 256;
++unsigned int defaultcs = 257;
+ static unsigned int defaultrcs = 257;
+ 
+ /*
+-- 
+2.45.0
+
